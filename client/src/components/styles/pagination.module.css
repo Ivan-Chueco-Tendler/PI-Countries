@@ -1,0 +1,69 @@
+.container{
+    text-align: center;
+    width: 400px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding-bottom: 0px;
+    flex-wrap: no-wrap;
+}
+
+.pageList {
+    width: 100%;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.items {
+    border: 1px solid rgba(0, 245, 151, 0.877);
+    background-color: rgba(0, 245, 151, 0.877);
+    border-radius: 50px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    width: 40px;
+    list-style-type: none;
+    padding-bottom: 4px;
+    margin-right: 9px;
+}
+
+.itemSelected {
+    background-color: rgba(0, 245, 151, 0.877);
+    border: 1px solid rgba(0, 245, 151, 0.877);
+    border-radius: 50px;
+    font-size: 20px;
+    width: 40px;
+    list-style-type: none;
+    padding-bottom: 4px;
+    margin-right: 9px;
+}
+
+.pages {
+    text-decoration: none;
+    border-radius: 50px;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    width: 30px;
+}
+
+.pageSelected {
+    text-decoration: none;
+    border-radius: 50px;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    width: 30px;
+    font-weight: bold;
+}
+
+.items:hover {
+    background-color: rgba(0, 245, 151, 0.877);
+}
+
+.items:hover a {
+    font-weight: bold;
+}

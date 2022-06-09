@@ -14,14 +14,12 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     difficulty: {
-        type: DataTypes.INTEGER,
-        min: 1,
-        max: 5,
+        type: DataTypes.STRING,
     },
     duration:{
         type: DataTypes.STRING,
     },
-    season:{
+    seasons:{
         type: DataTypes.JSON,
     }
   },

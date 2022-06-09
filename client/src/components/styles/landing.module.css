@@ -1,0 +1,29 @@
+.landingContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.start {
+    color: rgb(255, 255, 255);
+    font-size: 4vw;
+    display: flex;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 1px
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+    text-shadow: 0 0 0px #fff, 0 0 0px #fff;
+}
+
+.link:hover {
+    color: black;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white
+}

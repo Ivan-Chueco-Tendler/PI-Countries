@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { Country } = require('../db.js');
+const { Country, Activity } = require('../db.js');
 const axios = require("axios")
 
 const router = Router();
@@ -12,8 +12,8 @@ router.use("/", async (req, res, next)=>{
             id: c.cca3,
             name: {common: c.name.common, official: c.name.official},
             flag: c.flags[1],
-            continents: c.continents,
-            capital: c.capital ? c.capital : ["NO CAPITAL"],
+            continent: c.continents,
+            capital: c.capital ? c.capital[0] : ["NO CAPITAL"],
             subregion: c.subregion,
             area: c.area,
             population: c.population,
@@ -27,7 +27,11 @@ router.use("/", async (req, res, next)=>{
 router.get("/:id", async (req, res, next)=>{
     let {id} = req.params;
     try{
-        let country = await Country.findByPk(id)
+        let country = await Country.findByPk(id,{ 
+        include: {
+            model: Activity,
+        }
+        })
         res.status(200).json(country)
     }catch(e){
         next(e);
@@ -37,14 +41,17 @@ router.get("/:id", async (req, res, next)=>{
 router.get("/", async (req, res, next)=>{
     let {name} = req.query;
     try{
-        let countries = await Country.findAll()
-        // countries = countries.map(c=> {return c.dataValues})
+        let countries = await Country.findAll({ 
+            include: {
+                model: Activity,
+            }
+            })
         if(name){
             countries = countries.filter(c=> { return(
                 (c.name.toLowerCase()).includes(name.toLowerCase())
             )})
             if(countries.length === 0){
-                return res.status(404).send("No country with that name was found")
+                return res.send(["No country with that name was found"])
             }
         }
         res.status(200).json(countries)

@@ -20,11 +20,11 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    continents:{
+    continent:{
       type: DataTypes.STRING,
       allowNull: false,
       set(val){
-        this.setDataValue("continents", val[0]);
+        this.setDataValue("continent", val[0]);
       },
     },
     capital:{
